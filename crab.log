@@ -1,0 +1,30 @@
+DEBUG 2024-03-18 15:45:46.403 UTC: 	 CRAB Client version: v3.240110
+DEBUG 2024-03-18 15:45:46.404 UTC: 	 Running on: Linux zcobl3 5.15.0-84-generic #93~20.04.1-Ubuntu SMP Wed Sep 6 16:15:40 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux - CentOS Stream 8
+DEBUG 2024-03-18 15:45:46.404 UTC: 	 Executing command: 'checkusername'
+DEBUG 2024-03-18 15:45:46.404 UTC: 	 Could not find CRAB cache file /dmj/hep/konec/.crab3; creating a new one.
+DEBUG 2024-03-18 15:45:46.407 UTC: 	 Checking credentials
+DEBUG 2024-03-18 15:45:46.407 UTC: 	 Found proxy file /tmp/x509up_u29958
+DEBUG 2024-03-18 15:45:46.407 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-03-18 15:45:46.407 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u29958
+DEBUG 2024-03-18 15:45:46.449 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-03-18 15:45:46.449 UTC: 	 Getting proxy life time left
+DEBUG 2024-03-18 15:45:46.449 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u29958
+DEBUG 2024-03-18 15:45:46.492 UTC: 	 output : 43191
+43191
+
+ error: 
+ retcode : 0
+DEBUG 2024-03-18 15:45:46.493 UTC: 	 Proxy valid for 11:59:51 hours
+DEBUG 2024-03-18 15:45:46.493 UTC: 	 Command use: checkusername
+DEBUG 2024-03-18 15:45:46.493 UTC: 	 Options use: []
+DEBUG 2024-03-18 15:45:46.493 UTC: 	 Instance is None
+DEBUG 2024-03-18 15:45:46.493 UTC: 	 Server base url is None
+DEBUG 2024-03-18 15:45:46.494 UTC: 	 Retrieving username ...
+DEBUG 2024-03-18 15:45:46.494 UTC: 	 Retrieving username from CRIC...
+DEBUG 2024-03-18 15:45:51.839 UTC: 	 username is konec
+INFO 2024-03-18 15:45:51.840 UTC: 	 Username is: konec

@@ -1,0 +1,18 @@
+<use   name="root"/>
+<use   name="FWCore/Framework"/>
+<use   name="FWCore/ParameterSet"/>
+<use   name="SimDataFormats/Track"/>
+<use   name="SimDataFormats/CrossingFrame"/>
+<use   name="Geometry/Records"/>
+<use   name="Geometry/CommonDetUnit"/>
+<use   name="SimDataFormats/GeneratorProducts"/>
+<use   name="SimDataFormats/TrackingAnalysis"/>
+<use   name="SimGeneral/HepPDTRecord"/>
+<use   name="DataFormats/L1DTTrackFinder"/>
+<use   name="clhep"/>
+<use   name="hepmc"/>
+<use   name="heppdt"/>
+
+<library   file="Analysis.cc" name="Analysis">
+  <flags   EDM_PLUGIN="1"/>
+</library>
