@@ -13,8 +13,15 @@ gROOT.Reset()
 f = TFile(fileName);
 f.ls();
 
-c1 = TCanvas('cHisto','cHisto',600,600)
+c1 = TCanvas('cHisto','cHisto',800,600)
+
+c1.SetLeftMargin(0.14)
+
 histo = gROOT.FindObject('histo')
+histo.SetStats(0)
+histo.SetLineColor( 1  )
+histo.SetLineWidth( 2  )
+histo.SetFillColor( 19 )
 histo.Draw()
-c1.Print("histo.pdf")
+c1.Print("histo.jpg")
 input('press enter to exit')
