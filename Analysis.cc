@@ -31,8 +31,9 @@ public:
 
   //edm filter plugin specific functions
   virtual void beginJob();
-  double InvariantMass( const pat::Muon& , const pat::Muon&);
-  double InvariantMassStupid( const pat::Muon& , const pat::Muon&);
+  double muonEnergy( const pat::Muon& );
+  double invariantMass( const pat::Muon& , const pat::Muon&);
+  double invariantMass2( const pat::Muon& , const pat::Muon&);
   virtual void analyze(const edm::Event&, const edm::EventSetup&);
   virtual void endJob();
 
@@ -77,23 +78,28 @@ void Analysis::endJob()
   cout << "HERE Cwiczenie::endJob()" << endl;
 }
 
-double Analysis::InvariantMass(const pat::Muon& muon1, const pat::Muon& muon2 ){
+double Analysis::muonEnergy(const pat::Muon& muon ){
   
-  TLorentzVector p4_1(muon1.px(), muon1.py(), muon1.pz(), muon1.energy());
-  TLorentzVector p4_2(muon2.px(), muon2.py(), muon2.pz(), muon2.energy());
-  //cout << "px: " << muon1.px() << " " << muon2.px() <<endl;
-  //cout << "py: " << muon1.py() << " " << muon2.py() <<endl;
-  //cout << "pz: " << muon1.pz() << " " << muon2.pz() <<endl;
-  //cout << "energy: " << muon1.energy() << " " << muon2.energy() <<endl;
+  double mMu = 0.1056583755; //GeV
+
+  double energy = sqrt( pow(muon.p() , 2.) + mMu * mMu);
+
+  return energy ;
+}
+
+double Analysis::invariantMass(const pat::Muon& muon1, const pat::Muon& muon2 ){
+
+  TLorentzVector p4_1(muon1.px(), muon1.py(), muon1.pz(), muonEnergy( muon1 ));
+  TLorentzVector p4_2(muon2.px(), muon2.py(), muon2.pz(), muonEnergy( muon2 ));
 
   TLorentzVector sum = p4_1 + p4_2;
 
   return sum.M() ;
 }
 
-double Analysis::InvariantMassStupid(const pat::Muon& muon1, const pat::Muon& muon2 ){
+double Analysis::invariantMass2(const pat::Muon& muon1, const pat::Muon& muon2 ){
   
-  double inv = sqrt( pow( muon1.energy() + muon2.energy() , 2.) - pow( muon1.pz() + muon2.pz() , 2.) - pow( muon1.px() + muon2.px() , 2.) - pow( muon1.py() + muon2.py() , 2.));
+  double inv = sqrt( pow( muonEnergy(muon1) + muonEnergy(muon2), 2.) - pow( muon1.pz() + muon2.pz() , 2.) - pow( muon1.px() + muon2.px() , 2.) - pow( muon1.py() + muon2.py() , 2.));
   
   return inv ;
 }
@@ -119,7 +125,7 @@ void Analysis::analyze(
                 //cout <<" invariant mass: " <<  InvariantMass(muons[i], muons[j]) <<std::endl;
                 
                 
-                histo -> Fill(InvariantMass(muons[i], muons[j]));
+                histo -> Fill(invariantMass(muons[i], muons[j]));
             }
         }
     }
