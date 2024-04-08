@@ -1,0 +1,106 @@
+flist: ['file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/8558e29d-9a19-4d72-8e6b-d9a9718e9c18.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/857333de-d98f-4f1c-a197-fefeac073b64.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/86b81db4-80eb-4b53-a9aa-cae0a8b14311.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/87181e35-35c3-4f7d-ad59-45a787c8141d.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/8aab1d92-3b0c-40a9-9034-465b34783ccb.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/9052acae-1965-4887-8a7d-6082f410f80d.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/9226e362-2c5c-4155-a011-1d881d8bad00.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/9284a9c8-7b47-4213-afa6-bdb3d9ecf7c1.root', 'file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/9288e194-ad39-42c6-b0cb-c0ca4943afbb.root']
+08-Apr-2024 14:39:46 CEST  Initiating request to open file file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/8558e29d-9a19-4d72-8e6b-d9a9718e9c18.root
+08-Apr-2024 14:39:50 CEST  Successfully opened file file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/8558e29d-9a19-4d72-8e6b-d9a9718e9c18.root
+ CTORXX
+HERE Analysis::beginJob()
+Begin processing the 1st record. Run 370304, Event 144402176, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:52.837 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 4
+ reco muon pt: 6.15775,   muon q: 1
+ reco muon pt: 4.38378,   muon q: -1
+ reco muon pt: 3.03159,   muon q: -1
+ reco muon pt: 1.03761,   muon q: 1
+*** Analyze event: run: 370304 lumi: 66 event: 144402176 analysed event count:1
+Begin processing the 2nd record. Run 370304, Event 144943361, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.909 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 5
+ reco muon pt: 62.2722,   muon q: -1
+ reco muon pt: 4.09422,   muon q: 1
+ reco muon pt: 4.06492,   muon q: -1
+ reco muon pt: 1.37518,   muon q: 1
+ reco muon pt: 1.12836,   muon q: -1
+*** Analyze event: run: 370304 lumi: 66 event: 144943361 analysed event count:2
+Begin processing the 3rd record. Run 370304, Event 145237256, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.910 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 9
+ reco muon pt: 6.33557,   muon q: -1
+ reco muon pt: 5.9355,   muon q: 1
+ reco muon pt: 3.09824,   muon q: 1
+ reco muon pt: 1.10014,   muon q: -1
+ reco muon pt: 0.988029,   muon q: -1
+ reco muon pt: 0.90241,   muon q: 1
+ reco muon pt: 0.82065,   muon q: -1
+ reco muon pt: 0.799034,   muon q: -1
+ reco muon pt: 0.790104,   muon q: -1
+*** Analyze event: run: 370304 lumi: 66 event: 145237256 analysed event count:3
+Begin processing the 4th record. Run 370304, Event 145812480, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.912 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 6
+ reco muon pt: 5.32343,   muon q: -1
+ reco muon pt: 3.03342,   muon q: 1
+ reco muon pt: 1.60722,   muon q: 1
+ reco muon pt: 1.39324,   muon q: -1
+ reco muon pt: 1.19364,   muon q: 1
+ reco muon pt: 1.11917,   muon q: -1
+*** Analyze event: run: 370304 lumi: 66 event: 145812480 analysed event count:4
+Begin processing the 5th record. Run 370304, Event 145400312, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.914 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 4
+ reco muon pt: 5.19447,   muon q: 1
+ reco muon pt: 3.25548,   muon q: -1
+ reco muon pt: 1.14349,   muon q: 1
+ reco muon pt: 1.07831,   muon q: -1
+*** Analyze event: run: 370304 lumi: 66 event: 145400312 analysed event count:5
+Begin processing the 6th record. Run 370304, Event 146256904, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.915 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 4
+ reco muon pt: 7.52052,   muon q: 1
+ reco muon pt: 5.93107,   muon q: -1
+ reco muon pt: 1.80375,   muon q: -1
+ reco muon pt: 1.10479,   muon q: -1
+*** Analyze event: run: 370304 lumi: 66 event: 146256904 analysed event count:6
+Begin processing the 7th record. Run 370304, Event 144045551, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.916 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 5
+ reco muon pt: 4.97049,   muon q: -1
+ reco muon pt: 4.08585,   muon q: 1
+ reco muon pt: 1.32946,   muon q: -1
+ reco muon pt: 1.12705,   muon q: -1
+ reco muon pt: 0.988703,   muon q: 1
+*** Analyze event: run: 370304 lumi: 66 event: 144045551 analysed event count:7
+Begin processing the 8th record. Run 370304, Event 145056251, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.918 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 3
+ reco muon pt: 9.51724,   muon q: -1
+ reco muon pt: 4.58625,   muon q: 1
+ reco muon pt: 1.53859,   muon q: 1
+*** Analyze event: run: 370304 lumi: 66 event: 145056251 analysed event count:8
+Begin processing the 9th record. Run 370304, Event 145812483, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.919 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 12
+ reco muon pt: 8.79361,   muon q: 1
+ reco muon pt: 6.06246,   muon q: -1
+ reco muon pt: 3.00589,   muon q: 1
+ reco muon pt: 1.84432,   muon q: 1
+ reco muon pt: 1.68259,   muon q: 1
+ reco muon pt: 1.14822,   muon q: -1
+ reco muon pt: 1.11655,   muon q: 1
+ reco muon pt: 1.07414,   muon q: 1
+ reco muon pt: 1.03921,   muon q: 1
+ reco muon pt: 1.00307,   muon q: 1
+ reco muon pt: 0.958419,   muon q: -1
+ reco muon pt: 0.878499,   muon q: 1
+*** Analyze event: run: 370304 lumi: 66 event: 145812483 analysed event count:9
+Begin processing the 10th record. Run 370304, Event 145041933, LumiSection 66 on stream 0 at 08-Apr-2024 14:39:53.921 CEST
+ -------------------------------- HERE Cwiczenie::analyze 
+ number of muons: 6
+ reco muon pt: 7.09632,   muon q: -1
+ reco muon pt: 5.56586,   muon q: 1
+ reco muon pt: 1.46983,   muon q: -1
+ reco muon pt: 1.23737,   muon q: -1
+ reco muon pt: 1.11852,   muon q: -1
+ reco muon pt: 0.913224,   muon q: 1
+*** Analyze event: run: 370304 lumi: 66 event: 145041933 analysed event count:10
+08-Apr-2024 14:39:53 CEST  Closed file file:/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/8558e29d-9a19-4d72-8e6b-d9a9718e9c18.root
+HERE Cwiczenie::endJob()
+ DTOR

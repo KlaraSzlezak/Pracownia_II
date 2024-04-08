@@ -63,7 +63,7 @@ Analysis::~Analysis()
 void Analysis::beginJob()
 {
   //create a histogram
-  histo =new TH1D("histo","Invariant~mass~of~\\mu^+\\mu^-~pairs; \\sqrt{s}~[GeV]; Counts",200, 0., 20.);
+  histo =new TH1D("histo","Invariant~mass~of~\\mu^+\\mu^-~pairs; \\sqrt{s}~[GeV]; Counts",1200, 0., 12.);
 
   cout << "HERE Analysis::beginJob()" << endl;
 }
