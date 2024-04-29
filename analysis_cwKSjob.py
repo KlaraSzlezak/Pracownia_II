@@ -35,6 +35,8 @@ process.options = cms.untracked.PSet( wantSummary=cms.untracked.bool(False))
 
 process.analiza= cms.EDAnalyzer("Analysis",
   muonSrc = cms.InputTag("slimmedMuons"),
+  candidateSrc = cms.InputTag("packedPFCandidates"),
+  displacedSrc = cms.InputTag("slimmedDisplacedMuons"),
   outHist = cms.string('histos_'+jobId+'.root')
 )
 

@@ -4,6 +4,7 @@ import sys
 import subprocess
 import datetime
 import numpy as np
+import glob
 
 def checkRunning(processes) :
   nRunning = 0
@@ -47,5 +48,10 @@ for proc,name in myProc :
   status=proc.poll()
   print ('status of', proc, name, 'is: ',status) 
   subprocess.run(['sleep','1'])
-  
+
+matching_files = glob.glob('histos_*.root')
+print( matching_files )
+haddCommand = ['hadd', '-f', 'histo.root'] + matching_files
+subprocess.run(haddCommand)
+
 sys.exit(0)

@@ -9,6 +9,8 @@
 <use   name="SimDataFormats/TrackingAnalysis"/>
 <use   name="SimGeneral/HepPDTRecord"/>
 <use   name="DataFormats/L1DTTrackFinder"/>
+<use   name="DataFormats/PatCandidates"/>
+
 <use   name="clhep"/>
 <use   name="hepmc"/>
 <use   name="heppdt"/>
