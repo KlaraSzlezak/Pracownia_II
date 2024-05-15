@@ -11,6 +11,11 @@
 <use   name="DataFormats/L1DTTrackFinder"/>
 <use   name="DataFormats/PatCandidates"/>
 
+<use   name="TrackingTools/TransientTrack"/>
+<use   name="TrackingTools/Records"/>
+<use   name="RecoVertex/VertexPrimitives"/>
+<use   name="RecoVertex/KalmanVertexFit"/>
+
 <use   name="clhep"/>
 <use   name="hepmc"/>
 <use   name="heppdt"/>
