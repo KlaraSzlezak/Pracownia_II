@@ -51,7 +51,7 @@ for proc,name in myProc :
 
 matching_files = glob.glob('histos_*.root')
 print( matching_files )
-haddCommand = ['hadd', '-f', 'results.root'] + matching_files
+haddCommand = ['hadd', '-f', 'for5_27_05.root'] + matching_files
 subprocess.run(haddCommand)
 
 sys.exit(0)
