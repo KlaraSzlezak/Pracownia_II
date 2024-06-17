@@ -53,6 +53,7 @@ public:
   double invariantMass  ( const pat::PackedCandidate& , const pat::PackedCandidate& , double );
   double pTJPsi         ( const pat::Muon& , const pat::Muon& );
   double invariantMass3 ( const pat::Muon& , const pat::Muon&, const pat::PackedCandidate& , double& ); //only kaon kaon mu mu
+  double invariantMass4 ( const pat::Muon& , const pat::Muon&, const pat::PackedCandidate& , const pat::PackedCandidate& , double& );
 
 
   virtual void analyze(const edm::Event&, const edm::EventSetup&);
@@ -65,6 +66,7 @@ private:
   double mK = 0.493677; //GeV
   double mPi = 0.13957039; //GeV
   double zAv = 0.038164028445384024; // cm
+  double mPhi =1.019461; //GeV
 
   edm::ParameterSet theConfig;
   unsigned int theEventCount;
@@ -81,11 +83,11 @@ private:
   TH1D *hJpsiProb ;
   TH1D *hVz01;
   TH1D *hVz08;
-  TH1D *hInvK;
+  //TH1D *hInvK;
   TH1D *hkkProb ;
   TH1D *hMuMuKK ;
   TH1D *hInvMuMuK ;
-  TH1D *hExp ;
+  TH1D *hKK ;
   TH1D *hTest ;
 
   edm::EDGetTokenT< vector<pat::Muon> >            theMuonToken;
@@ -132,22 +134,22 @@ void Analysis::beginJob()
   //create a histogram
   histo = new TH1D("histo","test; X; #events",10, 0., 10.);
 
-  hInv  = new TH1D("hInv","Invariant~mass~of~\\mu^+\\mu^-~pairs; M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
-  hInvG = new TH1D("hInvG","Invariant~mass~of~\\mu^+\\mu^-~pairs~(global~muons~only); M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
+  hInv  = new TH1D("hInv","Invariant~mass~of~\\mu^+\\mu^-~pairs; M_{inv} [GeV]; Counts", 4800 , 0. , 12. );
+  hInvG = new TH1D("hInvG","Invariant~mass~of~\\mu^+\\mu^-~pairs~(global~muons~only); M_{inv} [GeV]; Counts", 4800 , 0. , 12. );
   hID   = new TH1D("hID","Particle ID; ID; Counts", 225 , -9.5, 215.5 );
-  hDisp = new TH1D("hDisp","Invariant~mass~of~\\mu^+\\mu^-~pairs~(SlimmedDisplacedMuons); M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
-  hCan  = new TH1D("hCan","Invariant~mass~of~\\mu^+\\mu^-~pairs~(Packed Candidate); M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
+  hDisp = new TH1D("hDisp","Invariant~mass~of~\\mu^+\\mu^-~pairs~(SlimmedDisplacedMuons); M_{inv} [GeV]; Counts", 4800 , 0. , 12. );
+  hCan  = new TH1D("hCan","Invariant~mass~of~\\mu^+\\mu^-~pairs~(Packed Candidate); M_{inv} [GeV]; Counts", 4800 , 0. , 12. );
   hVz   = new TH1D("hVz","The~distance~along~the~Z-axis~between~vertices~for~\\mu^+\\mu^-~pairs; Distance [cm]; Counts", 2400 , 0. , 6. );
   hVzPC = new TH1D("hVzPC","The~distance~along~the~Z-axis~between~vertices~for ~\\mu^+\\mu^-~pairs~(PC); Distance [cm]; Counts", 2400 , 0. , 6. );
   hProb = new TH1D("hProb","The~probability~of~a~common~vertex~for~\\mu^+\\mu^-~pairs; Probability; Counts", 200 , 0. , 1. );
   hJpsiProb = new TH1D("hJpsiProb","The~probability~of~a~common~vertex~for~\\mu^+\\mu^-~pairs,~M_{inv}~=~m(J/\\psi); Probability; Counts", 200 , 0. , 1. );
   hVz01 = new TH1D("hVz01","The~distance~along~the~Z-axis~between~vertices~for~\\mu^+\\mu^-~pairs,~M_{inv}~=~m(J/\\psi); Distance [cm]; Counts", 200000 , 0. , 20. );
   hVz08 = new TH1D("hVz08","The~distance~along~the~Z-axis~between~vertices~for~\\mu^+\\mu^-~pairs,~M_{inv}~=~m(J/\\psi); Distance [cm]; Counts", 200000 , 0. , 20. );
-  hInvK  = new TH1D("hInvK","Invariant~mass~of~K^+K^-~pairs; M_{inv}~[GeV]; Counts", 2400 , 0. , 12. );
+  //hInvK  = new TH1D("hInvK","Invariant~mass~of~K^+K^-~pairs; M_{inv}~[GeV]; Counts", 2400 , 0. , 12. );
   hkkProb = new TH1D("hkkProb","The~probability~of~a~common~vertex~for~K^+K^-~pairs; Probability; Counts", 200 , 0. , 1. );
   hInvMuMuK = new TH1D("hInvMuMuK","Invariant~mass~of~K^+J/\\psi; M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
-  hExp = new TH1D("hExp","Invariant~mass~of~\\Phi J/\\psi; M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
-  hMuMuKK  = new TH1D("hMuMuKK ","Invariant~mass~of~K^+K^-\\mu^+\\mu^-; M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
+  hKK = new TH1D("hKK","Invariant~mass~of~\\Phi ; M_{inv} [GeV]; Counts", 2400 , 0.8 , 2. );
+  hMuMuKK  = new TH1D("hMuMuKK ","Invariant~mass~of~K^+K^-\\mu^+\\mu^-; M_{inv} [GeV]; Counts", 1200 , 4. , 7. );
   hTest = new TH1D("hTest","Invariant~mass~of~\\pi^+J/\\psi; M_{inv} [GeV]; Counts", 2400 , 0. , 12. );
 
   cout << "HERE Analysis::beginJob()" << endl;
@@ -171,10 +173,10 @@ void Analysis::endJob()
   hJpsiProb -> Write();
   hVz01 -> Write();
   hVz08 -> Write();
-  hInvK  -> Write();
+ // hInvK  -> Write();
   hkkProb -> Write();
   hInvMuMuK -> Write();
-  hExp -> Write();
+  hKK -> Write();
   hMuMuKK -> Write();
   hTest -> Write();
 
@@ -192,10 +194,10 @@ void Analysis::endJob()
   delete hJpsiProb ;
   delete hVz01;
   delete hVz08;
-  delete hInvK;
+  //delete hInvK;
   delete hkkProb;
   delete hInvMuMuK;
-  delete hExp;
+  delete hKK;
   delete hMuMuKK;
   delete hTest;
 
@@ -267,6 +269,21 @@ double Analysis::invariantMass3(const pat::Muon& muon2, const pat::Muon& muon1,c
   //TLorentzVector p4_4(par2.px(), par2.py(), par2.pz(), energy2);
 
   TLorentzVector sum = p4_1 + p4_2 + p4_3 ;
+
+  return sum.M() ;
+}
+
+double Analysis::invariantMass4(const pat::Muon& muon2, const pat::Muon& muon1,const pat::PackedCandidate& par1,const pat::PackedCandidate& par2, double& mK){
+
+  double energy1 = sqrt( pow(par1.p() , 2.) + mK * mK);
+  double energy2 = sqrt( pow(par2.p() , 2.) + mK * mK);
+  
+  TLorentzVector p4_1(muon1.px(), muon1.py(), muon1.pz(), muonEnergy( muon1 ));
+  TLorentzVector p4_2(muon2.px(), muon2.py(), muon2.pz(), muonEnergy( muon2 ));
+  TLorentzVector p4_3(par1.px(), par1.py(), par1.pz(), energy1);
+  TLorentzVector p4_4(par2.px(), par2.py(), par2.pz(), energy2);
+
+  TLorentzVector sum = p4_1 + p4_2 + p4_3 + p4_4;
 
   return sum.M() ;
 }
@@ -350,20 +367,44 @@ void Analysis::analyze(
                   if( ic1->pdgId() != 211 || !ic1->hasTrackDetails() || ic1->pt() < 2. ) continue; //K+
                   const reco::Track & rtrk1 = ic1 -> pseudoTrack();
                   if( fabs(vjPsi.position().z() - rtrk1.vz()) < 0.3 ) continue;
+                  std::vector<reco::TransientTrack> tracks3 = muonTTs;
                   //cout<< "muonTTs size: " << muonTTs.size() << endl;
-                  muonTTs.push_back(trackBuilder.build(&rtrk1));
+                  tracks3.push_back(trackBuilder.build(&rtrk1));
                   //cout<< "muonTTs size: " << muonTTs.size() <<  endl;
-                  KalmanVertexFitter kvf(true); //true?
-                  reco::Vertex tv(TransientVertex(kvf.vertex(muonTTs)));
-                  muonTTs.pop_back();
+                  //KalmanVertexFitter kvf(true); //true?
+                  reco::Vertex tv3(TransientVertex(kvf.vertex(tracks3)));
+                  //muonTTs.pop_back();
                   //cout<< "muonTTs size: " << muonTTs.size() << endl;
-                  double prob = TMath::Prob(tv.chi2(),tv.ndof());
-                  double vzMuons = ( im1->vz() + im2->vz() ) / 2;
-                  if(prob <0.1 || abs( vzMuons - ic1->vz() ) > 0.3) continue;
+                  double prob = TMath::Prob(tv3.chi2(),tv3.ndof());
+                  //double vzMuons = ( im1->vz() + im2->vz() ) / 2;
+                  if(prob <0.1 ) continue;
                   hInvMuMuK -> Fill( invariantMass3(*im1, *im2, *ic1, mK) );
                   //cout << invariantMass3(*im1, *im2, *ic1, mK) << endl;
                   hTest -> Fill( invariantMass3(*im1, *im2, *ic1, mPi) );
                   //cout << invariantMass3(*im1, *im2, *ic1, mPi) << endl;
+                  for ( std:: vector<pat::PackedCandidate>::const_iterator ic2 = ic1+1; ic2 < candidates.end(); ic2++){
+                    if( ic2->pdgId() != 211 || !ic2->hasTrackDetails() || ic2->pt() < 2. ) continue; //K+
+                    const reco::Track & rtrk2 = ic2 -> pseudoTrack();
+                    if( rtrk1.charge()*rtrk2.charge() != -1 ) continue;
+                    if( fabs(vjPsi.position().z() - rtrk2.vz()) < 0.3) continue;
+                    std::vector<reco::TransientTrack> tracks4 = tracks3;
+                    //cout<< "muonTTs size: " << muonTTs.size() << endl;
+                    tracks4.push_back(trackBuilder.build(&rtrk2));
+                    //cout<< "muonTTs size: " << muonTTs.size() <<  endl;
+                    //KalmanVertexFitter kvf(true); //true?
+                    reco::Vertex tv4(TransientVertex(kvf.vertex(tracks4)));
+                    //muonTTs.pop_back();
+                    //cout<< "muonTTs size: " << muonTTs.size() << endl;
+                    double prob = TMath::Prob(tv4.chi2(),tv4.ndof());
+                    if(prob < 0.1 ) continue;
+                    double massPhi = invariantMass(*ic1, *ic2, mK);
+                    hKK -> Fill(massPhi);
+                    if( fabs(massPhi - mPhi ) > 0.02) continue;
+                    double massBs = invariantMass4(*im1, *im2, *ic1, *ic2, mK);
+                    hMuMuKK -> Fill(massBs);
+
+                  }
+
               }
 
               hVz01 -> Fill( delta_vz );
@@ -389,13 +430,13 @@ void Analysis::analyze(
     }
   }
 
-
+/*
 for (unsigned int i = 0; i < commonPairsPhi.size(); ++i) {
     for (unsigned int j = i+1; j < commonPairsJPsi.size(); ++j) {
         hExp->Fill(invariantMass(commonPairsPhi[i].first, commonPairsPhi[i].second, commonPairsJPsi[j].first, commonPairsJPsi[j].second));
     }
 }
-
+*/
 
 
 
