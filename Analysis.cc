@@ -364,7 +364,7 @@ void Analysis::analyze(
 
               for( std:: vector<pat::PackedCandidate>::const_iterator ic1 = candidates.begin(); ic1 < candidates.end(); ic1++){
                   
-                  if( ic1->pdgId() != 211 || !ic1->hasTrackDetails() || ic1->pt() < 2. ) continue; //K+
+                  if( abs(ic1->pdgId()) != 211 || !ic1->hasTrackDetails() || ic1->pt() < 2. ) continue; //K+
                   const reco::Track & rtrk1 = ic1 -> pseudoTrack();
                   if( fabs(vjPsi.position().z() - rtrk1.vz()) < 0.3 ) continue;
                   std::vector<reco::TransientTrack> tracks3 = muonTTs;
@@ -377,13 +377,13 @@ void Analysis::analyze(
                   //cout<< "muonTTs size: " << muonTTs.size() << endl;
                   double prob = TMath::Prob(tv3.chi2(),tv3.ndof());
                   //double vzMuons = ( im1->vz() + im2->vz() ) / 2;
-                  if(prob <0.1 ) continue;
+                  if(prob < 0.1 ) continue;
                   hInvMuMuK -> Fill( invariantMass3(*im1, *im2, *ic1, mK) );
                   //cout << invariantMass3(*im1, *im2, *ic1, mK) << endl;
                   hTest -> Fill( invariantMass3(*im1, *im2, *ic1, mPi) );
                   //cout << invariantMass3(*im1, *im2, *ic1, mPi) << endl;
                   for ( std:: vector<pat::PackedCandidate>::const_iterator ic2 = ic1+1; ic2 < candidates.end(); ic2++){
-                    if( ic2->pdgId() != 211 || !ic2->hasTrackDetails() || ic2->pt() < 2. ) continue; //K+
+                    if( abs(ic2->pdgId()) != 211 || !ic2->hasTrackDetails() || ic2->pt() < 2. ) continue; //K+
                     const reco::Track & rtrk2 = ic2 -> pseudoTrack();
                     if( rtrk1.charge()*rtrk2.charge() != -1 ) continue;
                     if( fabs(vjPsi.position().z() - rtrk2.vz()) < 0.3) continue;

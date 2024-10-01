@@ -323,7 +323,7 @@ cVz0x.Print("Plots/Vertex_dist_prob_26_05.png")
 
 hCan = gROOT.FindObject('hCan')
 print ("Hello ROOT")
-fileName5 = "jobs/for5_27_05.root"
+fileName5 = "jobs2/histos.root"
 print ('Read data from: ', fileName5)
 gROOT.Reset()
 f5 = TFile(fileName5);
@@ -575,7 +575,7 @@ hInvMuMuK.Draw('hist')
 cInvMuMuK.Draw()
 cInvMuMuK.Print("Plots/MuMuKInv_GLB_Muons_Kaonp_26_05.png")
 
-#hInvMuMuK = hInvMuMuK.Rebin(2)
+hInvMuMuK = hInvMuMuK.Rebin(2)
 
 cZoomB = TCanvas("cZoomB", "cZoomB", 1200, 800)
 hZoomB = hInvMuMuK.Clone('hZoomB')
@@ -679,7 +679,7 @@ cTest = TCanvas( 'cTest' , 'cTest' , 1000 , 600 )
 hTest = gROOT.FindObject('hTest')
 
 cTest.SetLeftMargin(0.14)
-#hTest = hTest.Rebin(2)
+hTest = hTest.Rebin(8)
 
 DrawHisto(hTest,19)
 cTest.cd()
@@ -691,6 +691,39 @@ hTest.Draw('hist')
 #fGplusG.DrawCopy('same')
 cTest.Draw()
 cTest.Print("Plots/Test_GLB_Muons_Pion_26_05.png")
+
+cMuMuKK = TCanvas( 'cMuMuKK' , 'cMuMuKK' , 1000 , 600 )
+hMuMuKK = gROOT.FindObject('hMuMuKK')
+
+cMuMuKK.SetLeftMargin(0.14)
+hMuMuKK = hMuMuKK.Rebin(5)
+DrawHisto(hMuMuKK,19)
+cMuMuKK.cd()
+
+hMuMuKK.Draw('hist')
+#fG.DrawCopy('same')
+
+#fG2.DrawCopy('same')
+#fGplusG.DrawCopy('same')
+cMuMuKK.Draw()
+cMuMuKK.Print("Plots/MuMuKK19_06.png")
+
+cKK = TCanvas( 'cKK' , 'cKK' , 1000 , 600 )
+hKK = gROOT.FindObject('hKK')
+
+cKK.SetLeftMargin(0.14)
+hKK = hKK.Rebin(10)
+
+DrawHisto(hKK,19)
+cKK.cd()
+
+hKK.Draw('hist')
+#fG.DrawCopy('same')
+
+#fG2.DrawCopy('same')
+#fGplusG.DrawCopy('same')
+cKK.Draw()
+cKK.Print("Plots/KK19_06.png")
 
 ##### SIGMA
 
