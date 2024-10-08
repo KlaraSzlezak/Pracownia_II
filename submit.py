@@ -1,4 +1,4 @@
-#!/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_13_3_3/external/el8_amd64_gcc12/bin/python3
+#!/cvmfs/cms.cern.ch/el8_amd64_gcc12/cms/cmssw/CMSSW_14_1_1/external/el8_amd64_gcc12/bin/python3
 
 import sys
 import subprocess
@@ -13,7 +13,7 @@ def checkRunning(processes) :
     if status==None : nRunning+=1
   return nRunning
     
-dataDir='/scratch_cmsse/konec/data/2023D_ParkingDoubleMuonLowMass/'
+dataDir='/eos/cms/store/group/dpg_trigger/comm_trigger/L1Trigger/OMTF/TrackingVertexing/BsToMuMuGamma_14_0_15_patch1_25_09_2024/TSG-Run3Summer22EEGS_Run2022_BsToMuMuGamma_14_0_15_patch1_25_09_2024/BsToMuMuGamma_14_0_15_patch1_25_09_2024/240925_134701/0000/'
 lsCommand='ls -1 '+dataDir+'|grep root'
 print ('command: ',lsCommand)
 dir=subprocess.Popen(lsCommand, stdout=subprocess.PIPE,shell=True,text=True)
@@ -49,9 +49,9 @@ for proc,name in myProc :
   print ('status of', proc, name, 'is: ',status) 
   subprocess.run(['sleep','1'])
 
-matching_files = glob.glob('histos_*.root')
-print( matching_files )
-haddCommand = ['hadd', '-f', 'histos.root'] + matching_files
-subprocess.run(haddCommand)
+#matching_files = glob.glob('histos_*.root')
+#print( matching_files )
+#haddCommand = ['hadd', '-f', 'histos.root'] + matching_files
+#subprocess.run(haddCommand)
 
 sys.exit(0)

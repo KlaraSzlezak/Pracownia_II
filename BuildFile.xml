@@ -10,6 +10,7 @@
 <use   name="SimGeneral/HepPDTRecord"/>
 <use   name="DataFormats/L1DTTrackFinder"/>
 <use   name="DataFormats/PatCandidates"/>
+<use   name="DataFormats/GenParticles"/>
 
 <use   name="TrackingTools/TransientTrack"/>
 <use   name="TrackingTools/Records"/>

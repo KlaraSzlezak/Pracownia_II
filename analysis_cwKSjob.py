@@ -18,7 +18,7 @@ process.options = cms.untracked.PSet(wantSummary = cms.untracked.bool(False))
 # input files (up to 255 files accepted)
 process.source = cms.Source('PoolSource', fileNames =cms.untracked.vstring(flist) )
 process.source.skipEvents = cms.untracked.uint32(0)
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1))
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1))
 
 process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
 process.load('Configuration.Geometry.GeometryDB_cff')
